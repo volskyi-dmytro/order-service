@@ -8,13 +8,15 @@ import reactor.core.publisher.Mono;
 
 @Service
 public class OrderService {
-    private final OrderRepository orderRepository;
     private final BookClient bookClient;
+    private final OrderRepository orderRepository;
+
 
     public OrderService(BookClient bookClient,
                         OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
         this.bookClient = bookClient;
+        this.orderRepository = orderRepository;
+
     }
 
     public Flux<Order> getAllOrders() {
